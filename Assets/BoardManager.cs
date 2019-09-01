@@ -2,23 +2,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using BoardGame;
-using TMPro;
+using UnityEngine.SceneManagement;    // tools to manage the scene, for restarting the game
+using BoardGame;                      // namespace from Board.cs
+using TMPro;                          // for modifying text on Canvas
+
 
 public class BoardManager : MonoBehaviour
 {
     // Instance variables
-    public const bool p1 = true;
-    public const bool p2 = false;
-    public       bool current;
-    public GameObject p1_piece;
-    public GameObject p2_piece;
-    public GameObject piece_parent;
+    public const bool      p1 = true;
+    public const bool      p2 = false;
+    public       bool      current;
+    public GameObject      p1_piece;
+    public GameObject      p2_piece;
+    public GameObject      piece_parent;
     public TextMeshProUGUI text;
 
     private Board  board;
     private Camera cam; 
 
+    /* Scene 0 */
+    public void Menu() {
+        SceneManager.LoadScene(0);
+    }
+
+
+    /* Scene 1 */
     // Mark a position on the board provided that a player hasn't already marked it.
     public void PlacePiece(bool player, int x, int y) {
         Debug.Log((x, y));
@@ -52,6 +61,12 @@ public class BoardManager : MonoBehaviour
         }
     }
 
+    public void RestartGame() {
+        SceneManager.LoadScene(1);
+    }
+
+    
+    /* Mono-behaviors, event functions used by Unity for first frame and ongoing frames. */
     // Start is called before the first frame update
     void Start()
     {
