@@ -19,13 +19,12 @@ public class BoardManager : MonoBehaviour
     public TextMeshProUGUI text;
 
     private Board  board;
-    private Camera cam; 
+    private Camera cam;
 
     /* Scene 0 */
     public void Menu() {
         SceneManager.LoadScene(0);
     }
-
 
     /* Scene 1 */
     // Mark a position on the board provided that a player hasn't already marked it.
@@ -65,15 +64,59 @@ public class BoardManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    
     /* Mono-behaviors, event functions used by Unity for first frame and ongoing frames. */
     // Start is called before the first frame update
     void Start()
     {
+        // see that selection from BoardSelector is accessible in BoardManager
+        Debug.Log(PlayerPrefs.GetString("selection"));
+
+        // make this more elegant by doing regex later
+        switch (PlayerPrefs.GetString("selection"))
+        {
+            case "slime_and_pig":
+                p1_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Slime");
+                p2_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Pig");
+                break;
+            case "slime_and_octopus":
+                p1_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Slime");
+                p2_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Octopus");
+                break;
+            case "slime_and_mushroom":
+                p1_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Slime");
+                p2_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Mushroom");
+                break;
+            case "teddy_and_trixter":
+                p1_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Pink Teddy");
+                p2_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Trixter");
+                break;
+            case "pig_and_octopus":
+                p1_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Pig");
+                p2_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Octopus");
+                break;
+            case "pig_and_mushroom":
+                p1_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Pig");
+                p2_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Mushroom");
+                break;
+            case "panda_and_teddy":
+                p1_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Panda Teddy");
+                p2_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Pink Teddy");
+                break;
+            case "panda_and_trixter":
+                p1_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Pink Teddy");
+                p2_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Trixter");
+                break;
+            case "panda_and_blocktopus":
+                p1_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Panda Teddy");
+                p2_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Blocktopus");
+                break;
+        }
+
         // create something to place things on a board
         // board will always be the same size
         cam = Camera.main;
         board = new Board(15, 15, 5);
+
     }
 
     // Update is called once per frame
