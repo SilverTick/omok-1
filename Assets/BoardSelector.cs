@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class BoardSelector : MonoBehaviour
 {
-    public characterSelections c; // just for example
     public static BoardSelector Instance;
 
     // only called before Start()
