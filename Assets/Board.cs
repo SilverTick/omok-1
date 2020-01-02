@@ -221,8 +221,8 @@ namespace BoardGame
                 else { i++; j--; }   // Right diagonal case
             }
 
-            // Did the player get k-in-a-row?
-            if (count != this.k) { return false; }
+            // Did the player get at least k-in-a-row?
+            if (count < this.k) { return false; }
 
             // One of the players won
             this.done = true;

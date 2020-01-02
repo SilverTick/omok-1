@@ -10,8 +10,8 @@ using TMPro;                          // for modifying text on Canvas
 public class BoardManager : MonoBehaviour
 {
     // Instance variables
-    public const bool      p1 = true;
-    public const bool      p2 = false;
+    public const bool      p1 = false;
+    public const bool      p2 = true;
     public       bool      current;
     public GameObject      p1_piece;
     public GameObject      p2_piece;
@@ -68,6 +68,9 @@ public class BoardManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // start with Player 1
+        current = p1;
+
         // see that selection from BoardSelector is accessible in BoardManager
         Debug.Log(PlayerPrefs.GetString("selection"));
 
