@@ -52,11 +52,3 @@ public class BoardSelector : MonoBehaviour
     }
 
 }
-
-// not a function, is an enumerated type
-public enum characterSelections
-{
-    red,
-    blue,
-    green
-}
