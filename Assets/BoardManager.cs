@@ -10,8 +10,8 @@ using TMPro;                          // for modifying text on Canvas
 public class BoardManager : MonoBehaviour
 {
     // Instance variables
-    public const bool      p1 = false;
-    public const bool      p2 = true;
+    public const bool      p1 = true;
+    public const bool      p2 = false;
     public       bool      current;
     public GameObject      p1_piece;
     public GameObject      p2_piece;
@@ -125,7 +125,16 @@ public class BoardManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = "It is player " + (Convert.ToInt32(current) + 1) + "'s turn.";
+        // Change player turn text
+        switch (current)
+        {
+            case p1:
+                text.text = "It is player 1's turn.";
+                break;
+            case p2:
+                text.text = "It is player 2's turn.";
+                break;
+        }
 
         // check if the game is over
         if (board.gameOver())
