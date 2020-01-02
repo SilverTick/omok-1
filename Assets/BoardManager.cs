@@ -106,7 +106,7 @@ public class BoardManager : MonoBehaviour
                 p2_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Pink Teddy");
                 break;
             case "panda_and_trixter":
-                p1_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Pink Teddy");
+                p1_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Panda Teddy");
                 p2_piece.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Trixter");
                 break;
             case "panda_and_blocktopus":
