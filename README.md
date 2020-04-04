@@ -1,5 +1,5 @@
 # omok
-This board game is based off of the Maplestory omok game and uses Maplestory sprites from jBarna/omok.
+This board game is based off of the Maplestory omok game and uses Maplestory sprites from [jBarna/omok](https://github.com/jBarna/omok).
 
 A demo of the game can be viewed [here](https://jtquach1.github.io/omok/Online_Build).
 
